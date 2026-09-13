@@ -1,23 +1,23 @@
-#pragma once
+ï»¿#pragma once
 
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
-//°æ±¾ºÅ¡¢ĞÅÏ¢
+//ç‰ˆæœ¬å·ã€ä¿¡æ¯
 #define Project_Name "1A2B"
 #define Project_Version "V1.4"																	
 #define CopyRight_C "CopyRight(C)2020~2025 chenjunfu2"
 #define Project_Link "https://github.com/chenjunfu2/1A2B"
 
-//¶ÁÈ¡²¢¶ªÆú×Ö·ûÖ±µ½\n
+//è¯»å–å¹¶ä¸¢å¼ƒå­—ç¬¦ç›´åˆ°\n
 inline void JumpLine(void)
 {
 	while (getchar() != '\n') continue;
 }
 
-//ÇåÆÁ
+//æ¸…å±
 inline void ClearScreen(void)
 {
 	system("cls");
@@ -25,27 +25,27 @@ inline void ClearScreen(void)
 
 int GetInputInt(int iBeg, int iEnd)
 {
-	printf("ÇëÑ¡Ôñ:");
+	printf("è¯·é€‰æ‹©:");
 	int iChoise = 0;
 	while (true)
 	{
 		if (scanf("%d", &iChoise) != 1)
 		{
 			JumpLine();
-			printf("ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë:");
-			continue;//ÖØÊÔ
+			printf("è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥:");
+			continue;//é‡è¯•
 		}
 
-		//ÇåÀí»º³åÇøÊ£ÓàÄÚÈİ
+		//æ¸…ç†ç¼“å†²åŒºå‰©ä½™å†…å®¹
 		JumpLine();
 
 		if (iChoise < iBeg || iChoise > iEnd)
 		{
-			printf("·¶Î§´íÎó£¬ÇëÖØĞÂÊäÈë:");
-			continue;//ÖØÊÔ
+			printf("èŒƒå›´é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥:");
+			continue;//é‡è¯•
 		}
 
-		break;//Ö´ĞĞµ½´ËÔòÑéÖ¤È«²¿Í¨¹ı
+		break;//æ‰§è¡Œåˆ°æ­¤åˆ™éªŒè¯å…¨éƒ¨é€šè¿‡
 	}
 
 	return iChoise;
@@ -59,63 +59,63 @@ int PeekChar(void)
 }
 
 
-//²Ëµ¥
+//èœå•
 inline void PrintMenu(void)
 {
-	printf("1A2B²ÂÊı×ÖĞ¡ÓÎÏ·\n\n");
-	printf("******************²Ë µ¥******************\n");
-	printf("1)¿ªÊ¼ÓÎÏ·                     2)Íæ·¨ËµÃ÷\n");
-	printf("3)²é¿´°æÈ¨                     4)ÍË³öÓÎÏ·\n");
+	printf("1A2BçŒœæ•°å­—å°æ¸¸æˆ\n\n");
+	printf("******************èœ å•******************\n");
+	printf("1)å¼€å§‹æ¸¸æˆ                     2)ç©æ³•è¯´æ˜\n");
+	printf("3)æŸ¥çœ‹ç‰ˆæƒ                     4)é€€å‡ºæ¸¸æˆ\n");
 	printf("*****************************************\n");
 }
 
-//ÓÃ»§Ñ¡Ôñ
+//ç”¨æˆ·é€‰æ‹©
 inline int MenuSwitch(void)
 {
 	return GetInputInt(1, 4);
 }
 
-//°ïÖú
+//å¸®åŠ©
 inline void PrintHelp(void)
 {
-	printf("ÓÎÏ·¹æÔò:\n"
-		"Ó¦ÓÃ»á¸ù¾İÏµÍ³Ê±¼äÉú³ÉÒ»¸öËÄÎ»Êı£¬¸÷Î»Êı×Ö²»»áÖØ¸´¡£\n"
-		"ÓÎÏ·¿ªÊ¼ºó£¬ÓÉÍæ¼Ò²ÂÓ¦ÓÃËùÉú³ÉµÄËÄÎ»Êı£¬²Â²âµÄ½á¹û½«»á±»Ó¦ÓÃÒÔAºÍBÀ´±íÊ¾½á¹ûµÄÕıÈ·Óë·ñ¡£\n"
-		"AÇ°Ãæ¸úÒ»¸öÊı×Ö£¬±íÊ¾²Â²âµÄ½á¹ûÖĞÓĞ¼¸¸öA£¬A´ú±í²Â²âµÄÊı×ÖÖĞ£¬Êı×ÖÏàÍ¬ÇÒÎ»ÖÃÒ²ÕıÈ·¡£\n"
-		"BÇ°Ãæ¸úÒ»¸öÊı×Ö£¬±íÊ¾²Â²âµÄ½á¹ûÖĞÓĞ¼¸¸öB£¬B´ú±í²Â²âµÄÊı×ÖÖĞ£¬Êı×ÖÏàÍ¬µ«Î»ÖÃ²»Ò»Ñù¡£\n\n"
-		"¾ÙÀıÀ´Ëµ£¬Èç¹ûÓ¦ÓÃÉú³ÉµÄÊı×ÖÎª1234£¬ÇÒÄã²ÂµÄÊı×ÖÎª5283£¬ÆäÖĞ2±»²Âµ½ÇÒÎ»ÖÃÕıÈ·£¬3Ò²±»²Âµ½µ«Î»ÖÃ²»¶Ô£¬ËùÒÔ½á¹û»á³öÏÖ1A1B¡£\n"
-		"ÓÎÏ·ÔÚÍêÕû²Â³öËùÓĞÊı×Öºó»ñµÃÊ¤Àû£¨Ò²¾ÍÊÇµÃµ½4A0BÊ±ÓÎÏ·½áÊø£©¡£\n\n\n");
+	printf("æ¸¸æˆè§„åˆ™:\n"
+		"åº”ç”¨ä¼šæ ¹æ®ç³»ç»Ÿæ—¶é—´ç”Ÿæˆä¸€ä¸ªå››ä½æ•°ï¼Œå„ä½æ•°å­—ä¸ä¼šé‡å¤ã€‚\n"
+		"æ¸¸æˆå¼€å§‹åï¼Œç”±ç©å®¶çŒœåº”ç”¨æ‰€ç”Ÿæˆçš„å››ä½æ•°ï¼ŒçŒœæµ‹çš„ç»“æœå°†ä¼šè¢«åº”ç”¨ä»¥Aå’ŒBæ¥è¡¨ç¤ºç»“æœçš„æ­£ç¡®ä¸å¦ã€‚\n"
+		"Aå‰é¢è·Ÿä¸€ä¸ªæ•°å­—ï¼Œè¡¨ç¤ºçŒœæµ‹çš„ç»“æœä¸­æœ‰å‡ ä¸ªAï¼ŒAä»£è¡¨çŒœæµ‹çš„æ•°å­—ä¸­ï¼Œæ•°å­—ç›¸åŒä¸”ä½ç½®ä¹Ÿæ­£ç¡®ã€‚\n"
+		"Bå‰é¢è·Ÿä¸€ä¸ªæ•°å­—ï¼Œè¡¨ç¤ºçŒœæµ‹çš„ç»“æœä¸­æœ‰å‡ ä¸ªBï¼ŒBä»£è¡¨çŒœæµ‹çš„æ•°å­—ä¸­ï¼Œæ•°å­—ç›¸åŒä½†ä½ç½®ä¸ä¸€æ ·ã€‚\n\n"
+		"ä¸¾ä¾‹æ¥è¯´ï¼Œå¦‚æœåº”ç”¨ç”Ÿæˆçš„æ•°å­—ä¸º1234ï¼Œä¸”ä½ çŒœçš„æ•°å­—ä¸º5283ï¼Œå…¶ä¸­2è¢«çŒœåˆ°ä¸”ä½ç½®æ­£ç¡®ï¼Œ3ä¹Ÿè¢«çŒœåˆ°ä½†ä½ç½®ä¸å¯¹ï¼Œæ‰€ä»¥ç»“æœä¼šå‡ºç°1A1Bã€‚\n"
+		"æ¸¸æˆåœ¨å®Œæ•´çŒœå‡ºæ‰€æœ‰æ•°å­—åè·å¾—èƒœåˆ©ï¼ˆä¹Ÿå°±æ˜¯å¾—åˆ°4A0Bæ—¶æ¸¸æˆç»“æŸï¼‰ã€‚\n\n\n");
 }
 
 inline void PrintCPR(void)
 {
 	printf("%s [%s]\n%s\n\n", Project_Name, Project_Version, CopyRight_C);
-	printf("Á´½Ó: %s\n\n", Project_Link);
+	printf("é“¾æ¥: %s\n\n", Project_Link);
 }
 
-//ÓÎÏ··µ»Ø²Ëµ¥
+//æ¸¸æˆè¿”å›èœå•
 inline void PrintSubMenu(void)
 {
-	printf("******************Òı µ¼******************\n");
-	printf("1)·µ»Ø²Ëµ¥                     2)ÍË³öÓÎÏ·\n");
+	printf("******************å¼• å¯¼******************\n");
+	printf("1)è¿”å›èœå•                     2)é€€å‡ºæ¸¸æˆ\n");
 	printf("*****************************************\n");
 }
 
-//ÓÃ»§Ñ¡Ôñ
+//ç”¨æˆ·é€‰æ‹©
 inline int SubMenuSwitch(void)
 {
 	return GetInputInt(1, 2);
 }
 
-//ÓÎÏ·½áÊø²Ëµ¥
+//æ¸¸æˆç»“æŸèœå•
 inline void PrintGameEndMenu(void)
 {
-	printf("******************Òı µ¼******************\n");
-	printf("1)ÔÙÀ´Ò»¾Ö                     2)·µ»Ø²Ëµ¥\n");
+	printf("******************å¼• å¯¼******************\n");
+	printf("1)å†æ¥ä¸€å±€                     2)è¿”å›èœå•\n");
 	printf("*****************************************\n");
 }
 
-//ÓÃ»§Ñ¡Ôñ
+//ç”¨æˆ·é€‰æ‹©
 inline int GameEndMenuSwitch(void)
 {
 	return GetInputInt(1, 2);
@@ -126,73 +126,73 @@ inline void Exit(void)
 	exit(0);
 }
 
-//³õÊ¼»¯Ëæ»úÊıÉú³ÉÆ÷
+//åˆå§‹åŒ–éšæœºæ•°ç”Ÿæˆå™¨
 inline void InitRandom(void)
 {
 	srand((unsigned)time(NULL));
 }
 
-//Ê¹ÓÃ¾Ü¾ø²ÉÑù·¨Éú³ÉËæ»úÊı·¶Î§
+//ä½¿ç”¨æ‹’ç»é‡‡æ ·æ³•ç”Ÿæˆéšæœºæ•°èŒƒå›´
 inline int GetRandom(int iBeg, int iEnd)
 {
 	int iRange = iEnd - iBeg + 1;
-	int iLimit = RAND_MAX - (RAND_MAX % iRange);//¾Ü¾ø²ÉÑù·¨×î´óÖµ£¨²»°üº¬£©
+	int iLimit = RAND_MAX - (RAND_MAX % iRange);//æ‹’ç»é‡‡æ ·æ³•æœ€å¤§å€¼ï¼ˆä¸åŒ…å«ï¼‰
 
 	int iRandomNum = 0;
 	do
 	{
 		iRandomNum = rand();
-	} while (iRandomNum >= iLimit);//³¬³ö·¶Î§£¬¾Ü¾ø²ÉÑù£¬ÖØĞÂÉú³É
+	} while (iRandomNum >= iLimit);//è¶…å‡ºèŒƒå›´ï¼Œæ‹’ç»é‡‡æ ·ï¼Œé‡æ–°ç”Ÿæˆ
 
-	return iRandomNum % iRange + iBeg;//·µ»Ø·¶Î§ÄÚµÄÖµ
+	return iRandomNum % iRange + iBeg;//è¿”å›èŒƒå›´å†…çš„å€¼
 }
 
 
 inline void Rand4NoRepeatNum(int iRandNums[4])
 {
-	//Éú³É4¸ö²»ÖØ¸´µÄÊı
-	int iNumsSwitch[] = { 0,1,2,3,4,5,6,7,8,9 };//ÓÃÓÚÉú³ÉµÄÊı×é£¬Ã¿´ÎÔÚÆäÖĞÑ¡ÔñºóÉ¾³ı
-	int iSwitchEnd = sizeof(iNumsSwitch) / sizeof(iNumsSwitch[0]) - 1;//Ä©Î²·¶Î§
+	//ç”Ÿæˆ4ä¸ªä¸é‡å¤çš„æ•°
+	int iNumsSwitch[] = { 0,1,2,3,4,5,6,7,8,9 };//ç”¨äºç”Ÿæˆçš„æ•°ç»„ï¼Œæ¯æ¬¡åœ¨å…¶ä¸­é€‰æ‹©ååˆ é™¤
+	int iSwitchEnd = sizeof(iNumsSwitch) / sizeof(iNumsSwitch[0]) - 1;//æœ«å°¾èŒƒå›´
 
 	for (int i = 0; i < 4; ++i)
 	{
-		//´ÓiNumsSwitchÖĞ¾ùÔÈÑ¡Ôñ1¸öÖµ×÷ÎªµÚÒ»¸ö
+		//ä»iNumsSwitchä¸­å‡åŒ€é€‰æ‹©1ä¸ªå€¼ä½œä¸ºç¬¬ä¸€ä¸ª
 		int iSwitchRand = GetRandom(0, iSwitchEnd);
 		iRandNums[i] = iNumsSwitch[iSwitchRand];
 
-		//È»ºó´ÓÆäÖĞÉ¾³ı´ËÖµ£¨°ÑÄ©Î²Öµ¸³Öµ¸øµ±Ç°£¬²¢½«Ä©Î²¼õÒ»£©
+		//ç„¶åä»å…¶ä¸­åˆ é™¤æ­¤å€¼ï¼ˆæŠŠæœ«å°¾å€¼èµ‹å€¼ç»™å½“å‰ï¼Œå¹¶å°†æœ«å°¾å‡ä¸€ï¼‰
 		iNumsSwitch[iSwitchRand] = iNumsSwitch[iSwitchEnd];
-		--iSwitchEnd;//ÕâÑùÏÂ´ÎÉú³ÉµÄÊ±ºò»áÔÚ½öÊ£µÄÆäÓàÖµÖĞ¾ùÔÈÑ¡Ôñ
+		--iSwitchEnd;//è¿™æ ·ä¸‹æ¬¡ç”Ÿæˆçš„æ—¶å€™ä¼šåœ¨ä»…å‰©çš„å…¶ä½™å€¼ä¸­å‡åŒ€é€‰æ‹©
 	}
 }
 
 
 inline bool Get4NoRepeatNum(int iInputNums[4])
 {
-	//¶ÁÈ¡ÊäÈë
+	//è¯»å–è¾“å…¥
 	while (true)
 	{
-		//µÃµ½µ¥Êı×ÖÊäÈë£¬ÅĞ¶ÏÊäÈëĞÅÏ¢
+		//å¾—åˆ°å•æ•°å­—è¾“å…¥ï¼Œåˆ¤æ–­è¾“å…¥ä¿¡æ¯
 		int iRet = scanf("%1d%1d%1d%1d", &iInputNums[0], &iInputNums[1], &iInputNums[2], &iInputNums[3]);
 		if (iRet != 4)
 		{
-			int iGet = PeekChar();//Íµ¿´Ò»¸ö×Ö·û
-			JumpLine();//È»ºóÌø¹ıÕûĞĞ
-			if (iGet == 'q' || iGet == 'Q')//Ö»ÒªÊÇq¿ªÍ·µÄ£¬ÔòÍË³ö
+			int iGet = PeekChar();//å·çœ‹ä¸€ä¸ªå­—ç¬¦
+			JumpLine();//ç„¶åè·³è¿‡æ•´è¡Œ
+			if (iGet == 'q' || iGet == 'Q')//åªè¦æ˜¯qå¼€å¤´çš„ï¼Œåˆ™é€€å‡º
 			{
 				return false;
 			}
 
-			//·ñÔòÌáÊ¾´íÎó
-			printf("ĞèÒªËÄÎ»¡¾Êı×Ö¡¿\n\n");
-			continue;//ÖØÊÔ
+			//å¦åˆ™æç¤ºé”™è¯¯
+			printf("éœ€è¦å››ä½ã€æ•°å­—ã€‘\n\n");
+			continue;//é‡è¯•
 		}
 
-		//É¾µôÊ£ÓàÎŞÓÃÀ¬»øÊı¾İ
+		//åˆ æ‰å‰©ä½™æ— ç”¨åƒåœ¾æ•°æ®
 		JumpLine();
 
-		bool bVerify = true;//ÓÃÓÚÈ·ÈÏÊÇ·ñÍêÕûÍ¨¹ıÑéÖ¤
-		bool bUsedNum[10] = { 0 };//ÓÃÓÚÑéÖ¤ÊÇ·ñÖØ¸´Ê¹ÓÃÊı×Ö
+		bool bVerify = true;//ç”¨äºç¡®è®¤æ˜¯å¦å®Œæ•´é€šè¿‡éªŒè¯
+		unsigned int uiUsedBitMask = 0;//ç”¨äºéªŒè¯æ˜¯å¦é‡å¤ä½¿ç”¨æ•°å­—
 		for (int i = 0; i < 4; ++i)
 		{
 			int iCurrent = iInputNums[i];
@@ -200,26 +200,26 @@ inline bool Get4NoRepeatNum(int iInputNums[4])
 			if (iCurrent < 0 || iCurrent > 9)
 			{
 				bVerify = false;
-				break;//Ìø³öfor
+				break;//è·³å‡ºfor
 			}
 
-			//È·¶¨·¶Î§Ã»ÎÊÌâ£¬ÔòÔÚboolÊı×éÄÚ½øĞĞ²éÖØÅĞ¶Ï
-			if (bUsedNum[iCurrent] == true)
+			//ç¡®å®šèŒƒå›´æ²¡é—®é¢˜ï¼Œåˆ™åœ¨boolæ•°ç»„å†…è¿›è¡ŒæŸ¥é‡åˆ¤æ–­
+			if ((uiUsedBitMask & (1 << iCurrent)) == (1 << iCurrent))
 			{
-				printf("ĞèÒª¡¾²»ÖØ¸´¡¿µÄËÄÎ»Êı×Ö\n\n");
+				printf("éœ€è¦ã€ä¸é‡å¤ã€‘çš„å››ä½æ•°å­—\n\n");
 				bVerify = false;
-				break;//Ìø³öfor
+				break;//è·³å‡ºfor
 			}
 
-			//ÑéÖ¤Í¨¹ı£¬ÉèÖÃÖµ
-			bUsedNum[iCurrent] = true;
+			//éªŒè¯é€šè¿‡ï¼Œè®¾ç½®å€¼
+			uiUsedBitMask |= (1 << iCurrent);
 		}
 
 		if (bVerify == true)
 		{
-			break;//ÑéÖ¤Í¨¹ı£¬ÍË³öwhile
+			break;//éªŒè¯é€šè¿‡ï¼Œé€€å‡ºwhile
 		}
-		//·ñÔò¼ÌĞøÖØÊÔ
+		//å¦åˆ™ç»§ç»­é‡è¯•
 	}
 
 	return true;
@@ -232,86 +232,115 @@ typedef struct
 
 inline ValAB CalcAB(const int iRandNums[4], const int iInputNums[4])
 {
-	int A = 0, B = 0;
-	//¼ÆËãA¡¢BµÄ¸öÊı
-	for (int i = 0, j = 0; i < 4; ++i)
+	int A = 0;
+
+	//é®ç½©ä½ï¼Œç”¨äºå­˜å‚¨éƒ½æœ‰å“ªäº›æ•°å€¼å­˜åœ¨
+	unsigned int uiRandBitMask = 0;
+	for (int i = 0; i < 4; ++i)
 	{
-		if (iRandNums[i] == iInputNums[i])//Í³¼ÆÎ»ÖÃÕıÈ·ÇÒÊıÖµÕıÈ·
+		uiRandBitMask |= (1 << iRandNums[i]);//æ„å»ºä½
+
+		if (iRandNums[i] == iInputNums[i])//é¡ºä¾¿è®¡ç®—A
 		{
 			++A;
-			continue;//¼ÌĞøÏÂÒ»¸ö
+		}
+	}
+
+	//çŒœæµ‹æ•°ä¸éšæœºæ•°çš„åŒ¹é…æ€»æ•°
+	int iCommon = 0;
+	for (int i = 0; i < 4; ++i)
+	{
+		if ((uiRandBitMask & (1 << iInputNums[i])) == (1 << iInputNums[i]))//æµ‹è¯•ä½
+		{
+			++iCommon;
+		}
+	}
+
+	int B = iCommon - A;
+	return (ValAB){ A,B };
+
+	//ä¸‹é¢ä»£ç ä¸ä¸Šé¢ç­‰æ•ˆï¼Œä½†æ˜¯å¤æ‚åº¦æ›´é«˜
+	/*
+	//è®¡ç®—Aã€Bçš„ä¸ªæ•°
+	for (int i = 0, j = 0; i < 4; ++i)
+	{
+		if (iRandNums[i] == iInputNums[i])//ç»Ÿè®¡ä½ç½®æ­£ç¡®ä¸”æ•°å€¼æ­£ç¡®
+		{
+			++A;
+			continue;//ç»§ç»­ä¸‹ä¸€ä¸ª
 		}
 
-		//Í³¼ÆÎ»ÖÃ²»ÕıÈ·
-		for (int j = 0; j < 4; ++j)//´ÓÍ·¿ªÊ¼²éÕÒµ±Ç°ÖµÓĞÎŞÆ¥Åä
+		//ç»Ÿè®¡ä½ç½®ä¸æ­£ç¡®
+		for (int j = 0; j < 4; ++j)//ä»å¤´å¼€å§‹æŸ¥æ‰¾å½“å‰å€¼æœ‰æ— åŒ¹é…
 		{
-			if (i != j && iRandNums[i] == iInputNums[j])//Í³¼ÆÎ»ÖÃ²»ÕıÈ·µ«ÊıÖµÕıÈ·
+			if (i != j && iRandNums[i] == iInputNums[j])//ç»Ÿè®¡ä½ç½®ä¸æ­£ç¡®ä½†æ•°å€¼æ­£ç¡®
 			{
 				++B;
-				break;//ÕÒµ½Ò»¸ö¼´¿ÉÍË³ö£¬ÒòÎªÊÇ²»ÖØ¸´µÄ
+				break;//æ‰¾åˆ°ä¸€ä¸ªå³å¯é€€å‡ºï¼Œå› ä¸ºæ˜¯ä¸é‡å¤çš„
 			}
 		}
 	}
 	return (ValAB){ A,B };
+	*/
 }
 
-//ÓÎÏ·
+//æ¸¸æˆ
 inline void GameLoop(void)																			
 {
-	//³õÊ¼»¯Ëæ»úÊıÉú³ÉÆ÷
+	//åˆå§‹åŒ–éšæœºæ•°ç”Ÿæˆå™¨
 	InitRandom();
-	//Éú³É4¸ö²»ÖØ¸´µÄËæ»úÊı
+	//ç”Ÿæˆ4ä¸ªä¸é‡å¤çš„éšæœºæ•°
 	int iRandNums[4];
 	Rand4NoRepeatNum(iRandNums);
 	
-	//×¼±¸±äÁ¿ÓÃÓÚÍ³¼ÆºÍÅĞ¶ÏÊäÓ®
+	//å‡†å¤‡å˜é‡ç”¨äºç»Ÿè®¡å’Œåˆ¤æ–­è¾“èµ¢
 	int iGuessCount = 0;
 	bool bWin;
 
-	printf("ÓÎÏ·¿ªÊ¼£¬Çë²ÂÊı×Ö£¬ÊäÈëqÍË³ö:\n");
-	time_t tBeg = time(NULL);//±£´æ¿ªÊ¼Ê±¼ä
+	printf("æ¸¸æˆå¼€å§‹ï¼Œè¯·çŒœæ•°å­—ï¼Œè¾“å…¥qé€€å‡º:\n");
+	time_t tBeg = time(NULL);//ä¿å­˜å¼€å§‹æ—¶é—´
 	while (true)
 	{
 		int iInputNums[4];
-		if (!Get4NoRepeatNum(iInputNums))//ÓÃ»§´¥·¢ÍË³ö
+		if (!Get4NoRepeatNum(iInputNums))//ç”¨æˆ·è§¦å‘é€€å‡º
 		{
 			bWin = false;
 			break;
 		}
 
-		//µİÔö²Â²â¼ÆÊı
+		//é€’å¢çŒœæµ‹è®¡æ•°
 		iGuessCount++;
 
-		//¼ÆËãABÖµ
+		//è®¡ç®—ABå€¼
 		ValAB tmpAB = CalcAB(iRandNums, iInputNums);
 		printf("%dA%dB\n\n", tmpAB.A, tmpAB.B);
 
-		//Ó®ÁËÔòÀë¿ª
+		//èµ¢äº†åˆ™ç¦»å¼€
 		if (tmpAB.A == 4)
 		{
 			bWin = true;
 			break;
 		}
 	}
-	time_t tEnd = time(NULL);//±£´æ½áÊøÊ±¼ä
+	time_t tEnd = time(NULL);//ä¿å­˜ç»“æŸæ—¶é—´
 
-	//ÏÔÊ¾²»Í¬ĞÅÏ¢
+	//æ˜¾ç¤ºä¸åŒä¿¡æ¯
 	if (bWin)
 	{
-		printf("ÓÎÏ·½áÊø£¬ÄúÓ®ÁË£¡\n\n");
+		printf("æ¸¸æˆç»“æŸï¼Œæ‚¨èµ¢äº†ï¼\n\n");
 	}
 	else
 	{
-		printf("\nÓÎÏ·½áÊø£¬ÄúÊäÁË£¡\nÄ¿±êÊı×ÖÎª:[%1d%1d%1d%1d]\n\n",
+		printf("\næ¸¸æˆç»“æŸï¼Œæ‚¨è¾“äº†ï¼\nç›®æ ‡æ•°å­—ä¸º:[%1d%1d%1d%1d]\n\n",
 			iRandNums[0], iRandNums[1], iRandNums[2], iRandNums[3]);
 	}
 
-	printf("Êı¾İÍ³¼Æ:\n---ÄúÒ»¹²²ÂÁË%d´Î\n---ÓÃÊ±%lldÃë\n\n", iGuessCount, tEnd - tBeg);
+	printf("æ•°æ®ç»Ÿè®¡:\n---æ‚¨ä¸€å…±çŒœäº†%dæ¬¡\n---ç”¨æ—¶%lldç§’\n\n", iGuessCount, tEnd - tBeg);
 }
 
 inline void MenuLoop(void)
 {
-	//³õÊ¼»¯Ñ¡Ôñº¯ÊıÊı×é
+	//åˆå§‹åŒ–é€‰æ‹©å‡½æ•°æ•°ç»„
 	typedef void(*CALL_FUNC)(void);
 	CALL_FUNC funcMenuSwitch[] =
 	{
@@ -326,37 +355,37 @@ inline void MenuLoop(void)
 	{
 		int iSwitch;
 
-		//´òÓ¡²Ëµ¥
+		//æ‰“å°èœå•
 		PrintMenu();
-		//»ñÈ¡ÓÃ»§Ñ¡Ôñ
+		//è·å–ç”¨æˆ·é€‰æ‹©
 		iSwitch = MenuSwitch();
 		ClearScreen();
 
 	Restart_Game:
-		printf("ÄúÑ¡ÔñÁË:%d\n\n", iSwitch);
-		//Ö´ĞĞ
-		funcMenuSwitch[iSwitch - 1]();//¼õÒ»µÃµ½0»ùË÷Òı·ÃÎÊÊı×é
+		printf("æ‚¨é€‰æ‹©äº†:%d\n\n", iSwitch);
+		//æ‰§è¡Œ
+		funcMenuSwitch[iSwitch - 1]();//å‡ä¸€å¾—åˆ°0åŸºç´¢å¼•è®¿é—®æ•°ç»„
 
-		//¸Õ²ÅÑ¡ÔñµÄÊÇ1£¬ÓÎÏ·Ä£Ê½
+		//åˆšæ‰é€‰æ‹©çš„æ˜¯1ï¼Œæ¸¸æˆæ¨¡å¼
 		if (iSwitch == 1)
 		{
-			//´òÓ¡ÓÎÏ·½áÊø²Ëµ¥
+			//æ‰“å°æ¸¸æˆç»“æŸèœå•
 			PrintGameEndMenu();
 			iSwitch = GameEndMenuSwitch();
-			ClearScreen();//ÇåÆÁ
-			if (iSwitch == 1)//ÔÙÀ´Ò»¾Ö
+			ClearScreen();//æ¸…å±
+			if (iSwitch == 1)//å†æ¥ä¸€å±€
 			{
 				goto Restart_Game;
 			}
 		}
-		else//Ñ¡ÔñÆäËûÔò´òÓ¡ÆÕÍ¨¶ş¼¶²Ëµ¥
+		else//é€‰æ‹©å…¶ä»–åˆ™æ‰“å°æ™®é€šäºŒçº§èœå•
 		{
-			//´òÓ¡¶ş¼¶²Ëµ¥
+			//æ‰“å°äºŒçº§èœå•
 			PrintSubMenu();
-			//»ñÈ¡ÓÃ»§Ñ¡Ôñ
+			//è·å–ç”¨æˆ·é€‰æ‹©
 			iSwitch = SubMenuSwitch();
-			//Ö´ĞĞ
-			funcSubMenuSwitch[iSwitch - 1]();//¼õÒ»µÃµ½0»ùË÷Òı·ÃÎÊÊı×é
+			//æ‰§è¡Œ
+			funcSubMenuSwitch[iSwitch - 1]();//å‡ä¸€å¾—åˆ°0åŸºç´¢å¼•è®¿é—®æ•°ç»„
 		}
 	}
 }
